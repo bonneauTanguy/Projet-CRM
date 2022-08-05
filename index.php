@@ -71,6 +71,7 @@
                             echo '<a class="btn btn-danger" href="delete.php?id=' . $row['id'] . ' ">Delete</a>';
                             echo '</td><p>';
                             echo '</tr><p>';
+
                             Database::disconnect(); //on se deconnecte de la BDD;
                         ?>
                     </tbody>

@@ -1,7 +1,9 @@
-<?php require 'database.php'; if($_SERVER["REQUEST_METHOD"]== "POST" && !empty($_POST)){
+<?php require 'database.php';
+ if($_SERVER["REQUEST_METHOD"]== "POST" && !empty($_POST))
+ {
     $pdo=Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO user (name,firstname,age,tel, email, pays,comment, metier,url) values(?, ?, ?, ? , ? , ? , ? , ?, ?)";
+    $sql = "INSERT INTO user (firstname,age,tel, email, pays,comment, metier,url) values(?, ?, ?, ? , ? , ? , ? , ?, ?)";
     $q = $pdo->prepare($sql);
     $q->execute(array($firstname, $lastname, $email,$phone_number));
     Database::disconnect();
