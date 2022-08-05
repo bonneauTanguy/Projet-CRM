@@ -1,6 +1,5 @@
 <?php require 'database.php';
     if($_SERVER["REQUEST_METHOD"]== "POST" && !empty($_POST)) { //on initialise nos messages d'erreurs;
-
         $firstnameError = '';
         $lastnameError = '';
         $phone_numberError = '';
