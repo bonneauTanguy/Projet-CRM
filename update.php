@@ -1,26 +1,68 @@
-<?php require 'database.php'; $id = null; if ( !empty($_GET['id'])) { $id = $_REQUEST['id']; } if ( null==$id ) { header("Location: index.php"); }
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
-        $pdo=Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "UPDATE Contact SET firstname = ?,lastname = ?, email = ?, phone_number = ?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($firstname, $lastname, $email,$phone_number,$id));
-        Database::disconnect();
+<?php require 'database.php';
+    $id = null;
+    if ( !empty($_GET['id'])) {
+        $id = $_REQUEST['id'];
+    }
+    if ( null==$id ) {
         header("Location: index.php");
-        }else {
+    }
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) { // on initialise nos erreurs
+        $firstnameError = null;
+        $lastnameError = null;
+        $emailError = null;
+        $phone_numberError = null;
+        // On assigne nos valeurs
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $phone_number = $_POST['phone_number'];
+        // On verifie que les champs sont remplis
+        $valid = true;
+        if (empty($firstname)) {
+            $firstnameError = 'Please enter Name';
+            $valid = false;
+        }
+        if (empty($lastname)) {
+            $lastnameError = 'Please enter firstname';
+            $valid = false;
+        }
+        if (empty($email)) {
+            $emailError = 'Please enter Email Address';
+            $valid = false;
+        } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailError = 'Please enter a valid Email Address';
+            $valid = false;
+        }
+        if (empty($phone_number)) {
+            $phone_numberError = 'Please enter your age';
+            $valid = false;
+        }
+        // mise à jour des donnés
+        if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT * FROM user where id = ?";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($id));
-            $data = $q->fetch(PDO::FETCH_ASSOC);
-            $firstname = $data['firstname'];
-            $lastname = $data['lastname'];
-            $age = $data['age'];
-            $tel = $data['tel'];
-            $email = $data['email'];
-            Database::disconnect();
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
+                $sql = "UPDATE Contact SET firstname = ?,lastname = ?, email = ?, phone_number = ?";
+                $q = $pdo->prepare($sql);
+                $q->execute(array($firstname, $lastname, $email, $phone_number, $id));
+                Database::disconnect();
+                header("Location: index.php");
+            } else {
+                $pdo = Database::connect();
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $sql = "SELECT * FROM user where id = ?";
+                $q = $pdo->prepare($sql);
+                $q->execute(array($id));
+                $data = $q->fetch(PDO::FETCH_ASSOC);
+                $firstname = $data['firstname'];
+                $lastname = $data['lastname'];
+                $age = $data['age'];
+                $tel = $data['tel'];
+                $email = $data['email'];
+                Database::disconnect();
+            }
         }
+    }
 ?>
 
 <!DOCTYPE html>
