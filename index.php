@@ -55,7 +55,6 @@
                     <br />
                     <tbody>
                         <?php include 'database.php'; //connection a la BDD
-<<<<<<< HEAD
                             echo '<br /> <tr>';
                             echo'<td>' . $row['firstname'] . '</td> <p>';
                             echo'<td>' . $row['lastname'] . '</td> <p>';
@@ -71,8 +70,6 @@
                             echo '<a class="btn btn-danger" href="delete.php?id=' . $row['id'] . ' ">Delete</a>';
                             echo '</td><p>';
                             echo '</tr><p>';
-
-=======
                             $pdo = Database::connect(); //on se connecte à la base
                             $sql = 'SELECT * FROM Contact ORDER BY id DESC'; //on formule notre requete
                             foreach ($pdo->query($sql) as $row) { //on cree les lignes du tableau avec chaque valeur retournée
@@ -92,7 +89,6 @@
                                 echo '</td><p>';
                                 echo '</tr><p>';
                             }
->>>>>>> 2b43023d170667c9cf85ece32c6b861eb28211bc
                             Database::disconnect(); //on se deconnecte de la BDD;
                         ?>
                     </tbody>
