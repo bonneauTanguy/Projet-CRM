@@ -20,8 +20,7 @@ class Database
                 self::$cont = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
             } catch (PDOException $e) {
                 die($e->getMessage());
-            } 
-
+            }
         }
         return self::$cont;
     }
