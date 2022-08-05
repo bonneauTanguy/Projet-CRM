@@ -2,7 +2,7 @@
 
 class Database
 {
-    private static $dbName = 'CRM';
+    private static $dbName = 'projetCRM';
     private static $dbHost = '192.168.10.10';
     private static $dbUsername = 'homestead';
     private static $dbUserPassword = 'secret';
