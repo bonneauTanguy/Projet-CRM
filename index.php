@@ -56,21 +56,25 @@
                     <br />
                     <tbody>
                         <?php include 'database.php'; //connection a la BDD
-                            echo '<br /> <tr>';
-                            echo'<td>' . $row['firstname'] . '</td> <p>';
-                            echo'<td>' . $row['lastname'] . '</td> <p>';
-                            echo'<td>' . $row['email'] . '</td> <p>';
-                            echo'<td>' . $row['phone_number'] . '</td> <p>';
-                            echo '<td>';
-                            echo '<a class="btn" href="edit.php?id=' . $row['id'] . '">Read</a>';
-                            echo '</td> <p>';
-                            echo '<td>';
-                            echo '<a class="btn btn-success" href="update.php?id=' . $row['id'] . '">Update</a>';
-                            echo '</td> <p>';
-                            echo'<td>';
-                            echo '<a class="btn btn-danger" href="delete.php?id=' . $row['id'] . ' ">Delete</a>';
-                            echo '</td><p>';
-                            echo '</tr><p>';
+                            $pdo = Database::connect(); //on se connecte à la base
+                            $sql = 'SELECT * FROM Contact ORDER BY id DESC'; //on formule notre requete
+                            foreach ($pdo->query($sql) as $row) { //on cree les lignes du tableau avec chaque valeur retournée
+                                echo '<br /> <tr>';
+                                echo '<td>' . $row['firstname'] . '</td> <p>';
+                                echo '<td>' . $row['lastname'] . '</td> <p>';
+                                echo '<td>' . $row['email'] . '</td> <p>';
+                                echo '<td>' . $row['phone_number'] . '</td> <p>';
+                                echo '<td>';
+                                echo '<a class="btn" href="edit.php?id=' . $row['id'] . '">Read</a>';
+                                echo '</td> <p>';
+                                echo '<td>';
+                                echo '<a class="btn btn-success" href="update.php?id=' . $row['id'] . '">Update</a>';
+                                echo '</td> <p>';
+                                echo '<td>';
+                                echo '<a class="btn btn-danger" href="delete.php?id=' . $row['id'] . ' ">Delete</a>';
+                                echo '</td><p>';
+                                echo '</tr><p>';
+                            }
                             Database::disconnect(); //on se deconnecte de la BDD;
                         ?>
                     </tbody>
