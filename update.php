@@ -3,9 +3,11 @@
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
     }
+
     if ( null==$id ) {
         header("Location: index.php");
     }
+
     if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) { // on initialise nos erreurs
         $firstnameError = null;
         $lastnameError = null;
@@ -22,10 +24,12 @@
             $firstnameError = 'Please enter Name';
             $valid = false;
         }
+
         if (empty($lastname)) {
             $lastnameError = 'Please enter firstname';
             $valid = false;
         }
+
         if (empty($email)) {
             $emailError = 'Please enter Email Address';
             $valid = false;
@@ -33,6 +37,7 @@
             $emailError = 'Please enter a valid Email Address';
             $valid = false;
         }
+
         if (empty($phone_number)) {
             $phone_numberError = 'Please enter your age';
             $valid = false;

@@ -3,6 +3,7 @@
     if (!empty($_GET['id'])) {
         $id = $_REQUEST['id'];
     }
+
     if (null == $id) {
         header("location:index.php");
     } else { //on lance la connection et la requete
