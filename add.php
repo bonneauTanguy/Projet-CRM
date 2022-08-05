@@ -1,14 +1,11 @@
 <?php require 'database.php';
     if($_SERVER["REQUEST_METHOD"]== "POST" && !empty($_POST)) { //on initialise nos messages d'erreurs;
-        $nameError = '';
+
         $firstnameError = '';
         $lastnameError = '';
-        $telError = '';
+        $phone_numberError = '';
         $emailError = '';
-        $paysError = '';
-        $commentError = '';
-        $metierError = '';
-        $urlError = ''; // on recupère nos valeurs
+        // on recupère nos valeurs
         $firstname = htmlentities(trim($_POST['firstname']));
         $lastname = htmlentities(trim($_POST['lastname']));
         $phone_number = htmlentities(trim($_POST['phone_number']));
