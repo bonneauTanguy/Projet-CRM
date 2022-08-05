@@ -1,11 +1,57 @@
-<?php require 'database.php'; if($_SERVER["REQUEST_METHOD"]== "POST" && !empty($_POST)){
-    $pdo=Database::connect();
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO user (name,firstname,age,tel, email, pays,comment, metier,url) values(?, ?, ?, ? , ? , ? , ? , ?, ?)";
-    $q = $pdo->prepare($sql);
-    $q->execute(array($firstname, $lastname, $email,$phone_number));
-    Database::disconnect();
-    header("Location: index.php");
+<?php require 'database.php';
+    if($_SERVER["REQUEST_METHOD"]== "POST" && !empty($_POST)) { //on initialise nos messages d'erreurs;
+        $nameError = '';
+        $firstnameError = '';
+        $lastnameError = '';
+        $telError = '';
+        $emailError = '';
+        $paysError = '';
+        $commentError = '';
+        $metierError = '';
+        $urlError = ''; // on recupère nos valeurs
+        $firstname = htmlentities(trim($_POST['firstname']));
+        $lastname = htmlentities(trim($_POST['lastname']));
+        $phone_number = htmlentities(trim($_POST['phone_number']));
+        $email = htmlentities(trim($_POST['email']));
+        $valid = true;
+        if (empty($firstname)) {
+            $nameError = 'Please enter Name';
+            $valid = false;
+        } else if (!preg_match("/^[a-zA-Z ]*$/", $firstname)) {
+            $nameError = "Only letters and white space allowed";
+        }
+
+        if (empty($lastname)) {
+            $firstnameError = 'Please enter firstname';
+            $valid = false;
+        } else if (!preg_match("/^[a-zA-Z ]*$/", $lastname)) {
+            $nameError = "Only letters and white space allowed";
+        }
+
+        if (empty($email)) {
+            $emailError = 'Please enter Email Address';
+            $valid = false;
+        } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailError = 'Please enter a valid Email Address';
+            $valid = false;
+        }
+
+        if (empty($phone_number)) {
+            $telError = 'Please enter phone';
+            $valid = false;
+        } else if (!preg_match("#^0[1-68]([-. ]?[0-9]{2}){4}$#", $phone_number)) {
+            $telError = 'Please enter a valid phone';
+            $valid = false;
+        }// si les données sont présentes et bonnes, on se connecte à la base
+    }
+    if ($valid) {
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "INSERT INTO Contact (firstname,lastname, email, phone_number) values(?, ?, ?, ?)";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($firstname, $lastname, $email,$phone_number));
+        Database::disconnect();
+        header("Location: index.php");
     }
 ?>
 <!DOCTYPE html>
