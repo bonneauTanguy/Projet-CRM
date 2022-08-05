@@ -50,15 +50,14 @@
             } else {
                 $pdo = Database::connect();
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $sql = "SELECT * FROM user where id = ?";
+                $sql = "SELECT * FROM Contact where id = ?";
                 $q = $pdo->prepare($sql);
                 $q->execute(array($id));
                 $data = $q->fetch(PDO::FETCH_ASSOC);
                 $firstname = $data['firstname'];
                 $lastname = $data['lastname'];
-                $age = $data['age'];
-                $tel = $data['tel'];
                 $email = $data['email'];
+                $phone_number = $data['phone_number'];
                 Database::disconnect();
             }
         }
