@@ -20,6 +20,15 @@ class UserTest extends TestCase {
 		$this->assertEqals($this->user->isValid());
 	}
 
+	public function testSetFirstName() {
+		$this->user->email = 'Leonel';
+		$this->assertTrue($this->user->isValid());
+	}
+
+	public function testSetLastName() {
+		$this->user->email = 'CISCO';
+		$this->assertFals($this->user->isValid());
+	}
 
 	public function testphoneNumer() {
 		$this->user->setPhoneNumber('0878731122');
