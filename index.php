@@ -5,7 +5,6 @@
     <title>Projet CRM</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-wp-preserve="%3Cscript%20src%3D%22js%2Fbootstrap.js%22%3E%3C%2Fscript%3E" data-mce-resize="false" data-mce-placeholder="1" class="mce-object" width="20" height="20" alt="<script>" title="<script>" />
 
 </head>
@@ -54,10 +53,11 @@
                 <p>
                     <br />
                     <tbody>
-                        <?php include 'database.php'; //connection a la BDD
-                            $pdo = Database::connect(); //on se connecte à la base
-                            $sql = 'SELECT * FROM Contact ORDER BY id DESC'; //on formule notre requete
-                            foreach ($pdo->query($sql) as $row) { //on cree les lignes du tableau avec chaque valeur retournée
+                        <?php 
+                        require("include/database.php"); //connection a la BDD
+                        $req = PdoDatabase::connect(); //on se connecte à la base
+                        $cmd = 'SELECT * FROM Contact ORDER BY id DESC'; //on formule notre requete
+                            foreach ($req->query($cmd) as $row) { //on cree les lignes du tableau avec chaque valeur retournée
                                 echo '<br /> <tr>';
                                 echo '<td>' . $row['firstname'] . '</td> <p>';
                                 echo '<td>' . $row['lastname'] . '</td> <p>';
@@ -74,7 +74,7 @@
                                 echo '</td><p>';
                                 echo '</tr><p>';
                             }
-                            Database::disconnect(); //on se deconnecte de la BDD;
+                            PdoDatabase::disconnect();
                         ?>
                     </tbody>
                 <p>

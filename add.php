@@ -1,4 +1,4 @@
-<?php require 'database.php';
+<?php require 'include/database.php';
     if($_SERVER["REQUEST_METHOD"]== "POST" && !empty($_POST)) { //on initialise nos messages d'erreurs;
         $firstnameError = '';
         $lastnameError = '';
@@ -41,15 +41,15 @@
         }// si les données sont présentes et bonnes, on se connecte à la base
     }
     if ($valid) {
-        $pdo = Database::connect();
+        $pdo = PdoDatabase::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "INSERT INTO Contact (firstname,lastname, email, phone_number) values(?, ?, ?, ?)";
         $q = $pdo->prepare($sql);
         $q->execute(array($firstname, $lastname, $email,$phone_number));
-        Database::disconnect();
+        PdoDatabase::disconnect();
         header("Location: index.php");
     }
-?>
+    ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -71,7 +71,7 @@
             <p>
             <br />
 
-            <form method="post" action="add.php">
+            <form method="post">
                 <br />
                 <div class="control-group<?php echo !empty($firstnameError)?'error':'';?>">
                     <label class="control-label">Prénom</label>

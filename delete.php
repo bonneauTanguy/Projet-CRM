@@ -6,12 +6,12 @@
 
     if(!empty($_POST)) {
         $id = $_POST['id'];
-        $pdo = Database::connect();
+        $pdo = PdoDatabase::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "DELETE FROM Contact  WHERE id = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
-        Database::disconnect();
+        PdoDatabase::disconnect();
         header("Location: index.php");
     }
 
@@ -44,7 +44,7 @@
                 <p>
 
                     <br />
-                <form class="form-horizontal" action="delete.php" method="post">
+                <form class="form-horizontal" action="delete.php" method="delete">
                     <input type="hidden" name="id" value="<?php echo $id;?>"/>
 
                     Vous êtes sûr de supprimer ce contact ?
