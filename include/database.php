@@ -8,10 +8,10 @@
  */
         class PdoDatabase{
 
-            private static $dbName = 'contact';
-            private static $dbHost = '127.0.0.1';
-            private static $dbUsername = 'root';
-            private static $dbUserPassword = '29031999';
+            private static $dbName = 'projetCRM';
+            private static $dbHost = '51.75.255.249';
+            private static $dbUsername = 'admin';
+            private static $dbUserPassword = 'admin';
             private static $cont = null;
         
             public function __construct()
