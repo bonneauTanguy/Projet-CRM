@@ -16,7 +16,7 @@ Pourtant la BDD existe bien et nous avons des données dedans.
 
 ![image](https://user-images.githubusercontent.com/62374845/183258971-1c28c06b-dbc4-468c-9c28-b3ea59d2ee79.png)
 
-# BDD compre ADMIN 
+# BDD compte ADMIN 🤵🏼 
 
 
 ![image](https://user-images.githubusercontent.com/105059287/183259860-3f0def17-f7b3-4dae-901c-375a4eaac4a0.png)
@@ -25,3 +25,4 @@ Pourtant la BDD existe bien et nous avons des données dedans.
 # FICHIERS et PERMISSIONS 🚧
 
 On a utilisé le chmod 777 pour pouvoir modifier les fichiers aussi car on avait pas certais droits 
+
