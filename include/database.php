@@ -10,8 +10,8 @@
 
             private static $dbName = 'projetCRM';
             private static $dbHost = '51.75.255.249';
-            private static $dbUsername = 'admin';
-            private static $dbUserPassword = 'admin';
+            private static $dbUsername = 'root';
+            private static $dbUserPassword = 'root';
             private static $cont = null;
         
             public function __construct()
@@ -23,7 +23,7 @@
             {
                 if (null == self::$cont) {
                     try {
-                        self::$cont = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
+                        self::$cont = new PDO("mysql:host=" . self::$dbHost .";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
                     } catch (PDOException $e) {
                         die($e->getMessage());
                     }
