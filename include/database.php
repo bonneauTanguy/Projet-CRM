@@ -9,7 +9,7 @@
         class PdoDatabase{
 
             private static $dbName = 'projetCRM';
-            private static $dbHost = '51.75.255.249';
+            private static $dbHost = '51.75.255.249:3306';
             private static $dbUsername = 'admin';
             private static $dbUserPassword = 'admin';
             private static $cont = null;
