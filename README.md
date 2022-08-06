@@ -1,4 +1,4 @@
-# Projet-CRM
+# Projet-CRM 👁
 
 Le lien pour accéder a l'application: http://51.75.255.249/Projet-CRM/
 
@@ -14,3 +14,8 @@ Pourtant la BDD existe bien et nous avons des données dedans.
 ![image](https://user-images.githubusercontent.com/62374845/183258976-233be117-6cfc-4537-be69-55d6d9efd5f4.png)
 
 ![image](https://user-images.githubusercontent.com/62374845/183258971-1c28c06b-dbc4-468c-9c28-b3ea59d2ee79.png)
+
+
+# FICHIERS et PERMISSIONS
+
+On a utilisé le chmod 777 pour pouvoir modifier les fichiers aussi car on avait pas certais droits 
