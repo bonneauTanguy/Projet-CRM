@@ -16,6 +16,10 @@ Pourtant la BDD existe bien et nous avons des données dedans.
 ![image](https://user-images.githubusercontent.com/62374845/183258971-1c28c06b-dbc4-468c-9c28-b3ea59d2ee79.png)
 
 
-# FICHIERS et PERMISSIONS
+
+
+
+
+# FICHIERS et PERMISSIONS 🚧
 
 On a utilisé le chmod 777 pour pouvoir modifier les fichiers aussi car on avait pas certais droits 
