@@ -4,9 +4,9 @@ Le lien pour accéder a l'application: http://51.75.255.249/Projet-CRM/
 
 # Sur la VIM 👩🏼‍💻
 
-Nous vons eu des problemes avec la manipulation de la bdd mais en local on pouveit manupuler l'application avec la bdd.  
+Nous avons eu des problèmes avec la manipulation de la bdd, mais en local on pouvait manipuler l'application avec la bdd.
 
- # BDD compte ROOT 👨🏼‍✈️
+# BDD compte ROOT 👨🏼‍✈️
 
 Nous avons aussi eu un problème avec mysql lorqu'on est passer en production. On a donner les accès a un user admin qu'on a crée. mais on a une erreur SQLSTATE[HY000] [2002] Connection refused sur l'application.
 
