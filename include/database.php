@@ -10,8 +10,8 @@
 
             private static $dbName = 'projetCRM';
             private static $dbHost = '51.75.255.249';
-            private static $dbUsername = 'root';
-            private static $dbUserPassword = 'root';
+            private static $dbUsername = 'admin';
+            private static $dbUserPassword = 'admin';
             private static $cont = null;
         
             public function __construct()
