@@ -33,6 +33,6 @@ Pourtant la BDD existe bien et nous avons des données dedans.
 # FICHIERS et PERMISSIONS 🚧
 
 On a utilisé le chmod 777 pour pouvoir modifier les fichiers aussi parce-que on avait pas certais droits.  
-#🤷🏽‍♀️🤷🏽‍♂️
+# 🤷🏽‍♀️🤷🏽‍♂️
 
 # Iliyana & Tanguy
